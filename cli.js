@@ -4,22 +4,35 @@
  * Module dependencies.
  */
 
-var program = require('commander');
+const program = require('commander');
+const core = require('./index.js');
+const path = require('path');
+const fs = require('fs');
 
 program
   .version('0.1.0')
 
   .option('-o, --output', 'Type of output, by default STDOUT.')
 
-  .option('-t, --txt [file]', 'Read style.txt and output style.json')
-  .option('-j, --json [file]', 'Read style.json and output style.css ')
+  .option('-i, --import [file]', 'Read import.json and output style.json', 'import.json')
+  .option('-c, --compile [file]', 'Read style.json and output style.css ', 'style.json')
 
   .parse(process.argv);
 
-if(program.txt){
-  console.log('Nothing to do.')
-}else if(program.txt){
-  console.log('Nothing to do.')
+if(program.import){
+
+  const location = path.resolve(path.join('./', program.import) )
+  console.log('import: location: %s', location);
+  core.importData({location})
+
+}else if(program.compile){
+
+  const location = path.resolve(path.join('./', program.compile) )
+  console.log('compile: location: %s', location);
+  core({location})
+
 }else{
-  console.log('Nothing to do.')
+
+  console.log('huh: Nothing to do.');
+
 }
