@@ -9,13 +9,17 @@ var program = require('commander');
 program
   .version('0.1.0')
 
-  .option('-p, --peppers', 'Add peppers')
-  .option('-c, --cheese [type]', 'Add the specified type of cheese [marble]', 'marble')
+  .option('-o, --output', 'Type of output, by default STDOUT.')
+
+  .option('-t, --txt [file]', 'Read style.txt and output style.json')
+  .option('-j, --json [file]', 'Read style.json and output style.css ')
 
   .parse(process.argv);
 
-console.log('you ordered a pizza with:');
-if (program.peppers) console.log('  - peppers');
-if (program.pineapple) console.log('  - pineapple');
-if (program.bbqSauce) console.log('  - bbq');
-console.log('  - %s cheese', program.cheese);
+if(program.txt){
+  console.log('Nothing to do.')
+}else if(program.txt){
+  console.log('Nothing to do.')
+}else{
+  console.log('Nothing to do.')
+}

@@ -3,6 +3,9 @@
   "version": "1.1.0",
   "description": "Build system for awesome backgrounds in CSS [CLI, Build, PostCSS]",
   "main": "index.js",
+  "bin": {
+    "gogh": "./cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

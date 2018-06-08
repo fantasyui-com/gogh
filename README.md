@@ -8,3 +8,5 @@ This will be GH_PAGES friendly by default.
 
 It will use parcel for ES6 behind index.html
 It will use PostCSS for prefixes.
+
+It will check for empty JSON and existence of style.txt
