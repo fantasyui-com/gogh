@@ -23,7 +23,7 @@ if(program.import){
 
   const location = path.resolve(path.join('./', program.import) )
   console.log('import: location: %s', location);
-  core.importData({location})
+  core({location})
 
 }else if(program.compile){
 

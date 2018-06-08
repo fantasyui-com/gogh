@@ -7,16 +7,16 @@ const fs = require('fs');
 // save CSS
 
 module.exports = {
-  importData: function({location}){
-    const npm = JSON.parse(fs.readFileSync(path.join('.','package.json')).toString());
 
+  importData: function({locations}){
+
+    const npm = JSON.parse(fs.readFileSync(path.join('.','package.json')).toString());
     const output = {
       "meta": {
         "name": npm.name
       },
       "data": []
     };
-
     const list = JSON.parse(fs.readFileSync(location).toString());
     list.forEach(function(item, index){
       if (index > 25) return;
@@ -38,6 +38,7 @@ module.exports = {
       }
       output.data.push({id, gradients})
     });
+
 
     console.log( JSON.stringify(output, null, '  ') );
   }
