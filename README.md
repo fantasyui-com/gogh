@@ -1,6 +1,14 @@
 # gogh
 Build system for awesome backgrounds in CSS [CLI, Build, PostCSS]
 
+## Example
+
+gogh --import --file import.json > style.json ;
+gogh --merge --file import-verticals.json > style2.json;
+mv style2.json style.json;
+gogh --compile > style.css 
+
+## Notes
 Given properly formatted gradient information in style.json create style.css,
 and a preview of all CSS backgrounds inside (index.html)
 

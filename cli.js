@@ -6,6 +6,7 @@
 
 const program = require('commander');
 const core = require('./index.js');
+const util = require('./util.js');
 const path = require('path');
 const fs = require('fs');
 
@@ -27,19 +28,18 @@ if(program.import){
 
   const database = path.resolve(path.join('./', program.database) )
   const file = path.resolve(path.join('./', program.file) )
-  core.importData({database,file})
+  util.importData({database,file})
 
 }else if(program.merge){
 
   const database = path.resolve(path.join('./', program.database) )
   const file = path.resolve(path.join('./', program.file) )
-  core.mergeData({database,file})
+  util.mergeData({database,file})
 
 }else if(program.compile){
 
-  // const source = path.resolve(path.join('./', program.compile) )
-  // console.log('compile: location: %s', source);
-  // core({location})
+  const database = path.resolve(path.join('./', program.database) )
+  console.log( core.css(/[a-z]/, {database}) );
 
 }else{
 
