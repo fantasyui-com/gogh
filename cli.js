@@ -14,29 +14,32 @@ program
 
   .option('-o, --output', 'Type of output, by default STDOUT.')
 
-  .option('-i, --import [file]', 'Read import.json and output style.json', 'import.json')
-  .option('-m, --merge [file]', 'Read import.json and merge with style.json', 'import.json')
-  .option('-c, --compile [file]', 'Read style.json and output style.css ', 'style.json')
+  .option('-d, --database [file]', 'Primary gradient information database.', 'style.json')
+  .option('-f, --file [file]', 'File to use by operations.')
+
+  .option('-i, --import', 'Read import.json and output style.json')
+  .option('-m, --merge', 'Read import.json and merge with style.json')
+  .option('-c, --compile', 'Read style.json and output style.css')
 
   .parse(process.argv);
 
 if(program.import){
 
-  const location = path.resolve(path.join('./', program.import) )
-  console.log('import: location: %s', location);
-  core.importData({location})
+  const database = path.resolve(path.join('./', program.database) )
+  const file = path.resolve(path.join('./', program.file) )
+  core.importData({database,file})
 
 }else if(program.merge){
-  
-  const location = path.resolve(path.join('./', program.import) )
-  console.log('import: location: %s', location);
-  core.importData({location})
+
+  const database = path.resolve(path.join('./', program.database) )
+  const file = path.resolve(path.join('./', program.file) )
+  core.mergeData({database,file})
 
 }else if(program.compile){
 
-  const location = path.resolve(path.join('./', program.compile) )
-  console.log('compile: location: %s', location);
-  core({location})
+  // const source = path.resolve(path.join('./', program.compile) )
+  // console.log('compile: location: %s', source);
+  // core({location})
 
 }else{
 
