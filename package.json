@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/fantasyui-com/gogh#readme",
   "dependencies": {
-    "commander": "^2.15.1"
+    "commander": "^2.20.1"
   }
 }
