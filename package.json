@@ -1,6 +1,6 @@
 {
   "name": "gogh",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "Build system for awesome backgrounds in CSS [CLI, Build, PostCSS]",
   "main": "index.js",
   "bin": {
